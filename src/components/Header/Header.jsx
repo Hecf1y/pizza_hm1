@@ -1,24 +1,28 @@
 import "./Header.css";
 
-const Header = () => {
+export const Header = (props) => {
+  const { links } = props; //<~ Деструктуризация//
+
+  console.log(links);
+
   return (
     <header className="header">
       <div className="header__logo">
         <span className="header__logo-icon">🍕</span>
         <span className="header__logo-text">
-          Forno <em>d&apos;Oro</em>
+          Норм<em>Пицца</em>
         </span>
       </div>
 
       <nav className="header__nav">
-        <a href="#menu" className="header__link">Меню</a>
-        <a href="#about" className="header__link">О нас</a>
-        <a href="#contacts" className="header__link">Контакты</a>
+        {links.map((item) => (
+          <a className="header__link" href="item.href">
+            {item.title}
+          </a>
+        ))}
       </nav>
 
       <button className="header__cta">Заказать</button>
     </header>
   );
 };
-
-export default Header;

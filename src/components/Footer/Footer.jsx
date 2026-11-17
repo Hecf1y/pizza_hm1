@@ -1,6 +1,6 @@
 import "./Footer.css";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="footer" id="contacts">
       <div className="footer__inner">
@@ -28,18 +28,24 @@ const Footer = () => {
         <div className="footer__col">
           <h4 className="footer__title">Мы в соцсетях</h4>
           <div className="footer__socials">
-            <a href="#" className="footer__social">VK</a>
-            <a href="#" className="footer__social">TG</a>
-            <a href="#" className="footer__social">IG</a>
+            <a href="#" className="footer__social">
+              VK
+            </a>
+            <a href="#" className="footer__social">
+              TG
+            </a>
+            <a href="#" className="footer__social">
+              IG
+            </a>
           </div>
         </div>
       </div>
 
       <div className="footer__bottom">
-        <span>© {new Date().getFullYear()} Forno d&apos;Oro. Все права защищены.</span>
+        <span>
+          © {new Date().getFullYear()} Forno d&apos;Oro. Все права защищены.
+        </span>
       </div>
     </footer>
   );
 };
-
-export default Footer;

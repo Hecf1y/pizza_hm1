@@ -1,21 +1,32 @@
-import "./App.css";
+import "./App.module.css";
+import { useState } from "react";
 
-import { Header, MainBlock, PizzaCards, Footer } from "./components";
+import {
+  Header,
+  Container,
+  PizzaCards,
+  Footer,
+  Basket,
+  ToDo,
+} from "./components";
 
 const App = () => {
+
+
 
   const links = [
     {
       title: "Меню",
       href: "#",
     },
-    {
-      title: "О нас",
-      href: "#",
-    },
+
     {
       title: "Контакты",
-      href: "#",
+      href: "#contacts",
+    },
+    {
+      title: "ToDo",
+      href: "#todo",
     },
   ];
 
@@ -165,13 +176,30 @@ const App = () => {
     },
   ];
 
+  const [basket, setBasket] = useState([]);
+
+  const addToBasket = (pizza) => {
+    setBasket((prev) => [
+      ...prev,
+      { ...pizza, basketId: `${Date.now()}-${Math.random()}` },
+    ]);
+  };
+
+  const removeFromBasket = (basketId) => {
+    setBasket((prev) => prev.filter((item) => item.basketId !== basketId));
+  };
+
   return (
-    <div className="wrapper">
+    //<~Пустой тег называется "Тег - фрагмент"//
+    <>
       <Header links={links} />
-      {/* <MainBlock /> */}
-      <PizzaCards pizza_data={pizza_data}/>
-      {/* <Footer /> */}
-    </div>
+      <PizzaCards pizza_data={pizza_data} onAddToBasket={addToBasket} />
+
+      <Basket basket={basket} onRemove={removeFromBasket} />
+      <Footer />
+      <Container />
+      <ToDo />
+    </>
   );
 };
 

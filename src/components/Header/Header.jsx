@@ -1,28 +1,33 @@
-import "./Header.css";
+import { Container } from "../Container/Container";
+import classes from "./Header.module.css";
 
 export const Header = (props) => {
   const { links } = props; //<~ Деструктуризация//
 
-  console.log(links);
+const scrollToBasket = () => {
+    const basket = document.getElementById("basket");
+    if (basket) {
+      basket.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
-  return (
-    <header className="header">
-      <div className="header__logo">
-        <span className="header__logo-icon">🍕</span>
-        <span className="header__logo-text">
-          Норм<em>Пицца</em>
-        </span>
-      </div>
+  return (<header className={classes.header}>
+    <Container className={classes.innerHeader}>
+      
+        <nav className={classes.header__nav}>
+          {links.map((item) => (
+            <a className={classes.header__link} href={item.href}>
+              {item.title}
+            </a>
+          ))}
+        </nav>
 
-      <nav className="header__nav">
-        {links.map((item) => (
-          <a className="header__link" href="item.href">
-            {item.title}
-          </a>
-        ))}
-      </nav>
-
-      <button className="header__cta">Заказать</button>
-    </header>
+        <button 
+        className={classes.header__cta}
+        onClick={scrollToBasket}
+        type="button"
+        >Корзина</button>
+      
+    </Container></header>
   );
 };

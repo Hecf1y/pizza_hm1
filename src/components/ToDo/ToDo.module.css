@@ -1,0 +1,113 @@
+.todo {
+  padding: 100px 0;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  /* background: #fafafa; */
+}
+
+.innerTodo {
+  width: 100%;
+  max-width: 640px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f1f1f;
+  text-align: center;
+}
+
+/* ---------- Форма ---------- */
+
+.form {
+  display: flex;
+  gap: 12px;
+}
+
+.input {
+  flex: 1;
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+  color: #1f1f1f;
+  background: #f4f4f5;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.input:focus {
+  background: #fff;
+  border-color: #ff6900;
+}
+
+.addBtn {
+  height: 48px;
+  padding: 0 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: #ff6900;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+.addBtn:hover {
+  background: #e55d00;
+}
+
+.addBtn:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Список ---------- */
+
+
+
+
+
+
+/* ---------- Адаптив ---------- */
+
+@media (max-width: 560px) {
+  .todo {
+    padding: 40px 16px;
+  }
+
+  .innerTodo {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .form {
+    flex-direction: column;
+  }
+
+  .addBtn {
+    width: 100%;
+  }
+}

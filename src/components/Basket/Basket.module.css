@@ -105,7 +105,6 @@
   font-size: 18px;
 }
 
-/* на мобилках чуть компактнее */
 @media (max-width: 480px) {
   .item {
     grid-template-columns: 44px 1fr auto;
